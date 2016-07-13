@@ -1,7 +1,7 @@
 pinpoint-hbase:
   container_name: pinpoint-hbase
   hostname: hbase
-  image: dawidmalina/pinpoint-hbase:1.5.2
+  image: patnaj/pinpoint-hbase
   restart: always
   expose:
     - "2181"
@@ -13,7 +13,7 @@ pinpoint-hbase:
 pinpoint-collector:
   container_name: pinpoint-collector
   hostname: collector
-  image: dawidmalina/pinpoint-collector:1.5.2
+  image: patnaj/pinpoint-collector
   restart: always
   expose:
     - "9994"
@@ -39,12 +39,12 @@ pinpoint-collector:
 pinpoint-web:
   container_name: pinpoint-web
   hostname: web
-  image: dawidmalina/pinpoint-web:1.5.2
+  image: patnaj/pinpoint-web
   restart: always
   expose:
     - "8080"
   ports:
-    - "3080:8080"
+    - "80:8080"
   environment:
     HBASE_HOST: hbase
     HBASE_PORT: 2181
